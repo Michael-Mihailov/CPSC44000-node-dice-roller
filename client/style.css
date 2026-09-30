@@ -1,0 +1,40 @@
+.yahtzee {
+    min-width: 50%;
+    max-width: 90%;
+
+    margin: 5%;
+}
+
+header h1 {
+    margin: 5%
+}
+
+.game-description {
+    justify-content: center;
+    width: 50%;
+}
+
+.game {
+    width: 100%;
+
+    justify-content: center;
+}
+
+.die {
+    width: 15%;
+    aspect-ratio: 1;
+
+    margin: 2%;
+}
+.die-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    container-type: inline-size;
+}
+
+.die h2 {
+    font-size: 62cqw;
+}

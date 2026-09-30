@@ -1,8 +1,11 @@
 const express = require("express")
+const cors = require("cors")
 const {rateLimit} = require("express-rate-limit")
 
 const app = express()
 const port = 3000
+
+app.use(cors())
 
 // limit to 100 requests per every 10 seconds
 const limiter = rateLimit({
@@ -39,6 +42,7 @@ app.get("/api/rolls", (req, res) => {
         return res.status(400).json({error:`ERROR: numSides must be a number between ${MIN_SIDES} and ${MAX_SIDES} (inclusive)`})
     }
 
+
     const answer = []
     for(let i = 0; i < numRolls; i++){
         answer.push(Math.floor(Math.random() * numSides) + 1)
@@ -50,5 +54,14 @@ app.get("/api/rolls", (req, res) => {
         result: answer
     })
 })
+
+app.get("/api/awake", (req, res) => {
+    res.send("I'm awake!")
+})
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html")
+})
+
 
 app.listen(port, () => {console.log(`Started server on port ${port}`)})

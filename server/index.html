@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Test</title>
+</head>
+<body>
+    <h1>Server Test Page</h1>
+    <button onclick="testServer()">Click Me!</button>
+    <div id="num"></div>
+    <script>
+        async function testServer(){
+            document.getElementById("num").innerHTML = `
+                <p>${JSON.stringify(await queryServer())}</p>
+            `
+        }
+        async function queryServer() {
+            const url = "/api/rolls?numSides=6&numRolls=3"
+            const data = await fetch(url)
+            const dataJson = await data.json()
+            return dataJson
+        }
+    </script>
+</body>
+</html>
