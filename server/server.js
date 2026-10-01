@@ -62,8 +62,7 @@ app.get("/api/awake", (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    res.send("Hello from the server! Express is Running")
-    //res.sendFile(__dirname + "/index.html")
+    res.sendFile(__dirname + "/index.html")
 })
 
 
