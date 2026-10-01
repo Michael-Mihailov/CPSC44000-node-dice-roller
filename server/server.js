@@ -3,7 +3,7 @@ const cors = require("cors")
 const {rateLimit} = require("express-rate-limit")
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 const clientURL = "https://agreeable-meadow-063caa510.1.azurestaticapps.net"
 

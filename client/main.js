@@ -1,4 +1,4 @@
-const SERVER_URL = "https://web-dice-roller-client-gmdtg7hzf5a5f9e7.centralus-01.azurewebsites.net/";
+const SERVER_URL = "https://web-dice-roller-client-gmdtg7hzf5a5f9e7.centralus-01.azurewebsites.net";
 
 let initialDiceNums = [1, 2, 3, 2, 1];
 let diceElements = null;
