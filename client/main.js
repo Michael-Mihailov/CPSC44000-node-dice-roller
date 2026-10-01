@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = "https://web-dice-roller-client-gmdtg7hzf5a5f9e7.centralus-01.azurewebsites.net/";
 
 let initialDiceNums = [1, 2, 3, 2, 1];
 let diceElements = null;
@@ -37,4 +37,14 @@ function setDie(index, value) {
 
     const die = diceElements[index];
     die.innerHTML = `<h2>${value}</h2>`;
+}
+
+async function failCORS() {
+    try {
+        const response = await fetch(SERVER_URL + "/");
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error("CORS error:", error);
+    }
 }

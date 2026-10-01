@@ -5,12 +5,14 @@ const {rateLimit} = require("express-rate-limit")
 const app = express()
 const port = 3000
 
-app.use(cors())
+const clientURL = "https://agreeable-meadow-063caa510.1.azurestaticapps.net"
 
-// limit to 100 requests per every 10 seconds
+app.use("/api", cors({ origin: clientURL })) // Enable CORS for API routes only for the specified client URL
+
+// limit to 10 requests per every 5 seconds
 const limiter = rateLimit({
-    windowMs: 10000,
-    limit: 100
+    windowMs: 5000,
+    limit: 10
 })
 app.use(limiter)
 
